@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Registros CEIF</title>
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <div class="tab">
+      <button class="tablink" id="Prensa">
+        Prensa
+      </button>
+      <button class="tablink" id="PoliciaInterna">
+        Policía Interna
+      </button>
+      <button class="tablink" id="Logistica">
+        Logística
+      </button>
+      <button class="tablink" id="LaboratorioMedicinaForense">
+        Laboratorio Medicina Forense
+      </button>
+      <button class="tablink" id="LaboratorioComputoForense">
+        Laboratorio Cómputo Forense
+      </button>
+      <button class="tablink" id="LaboratorioCalculoForense">
+        Laboratorio Cálculo Forense
+      </button>
+      <button class="tablink" id="Jueces">
+        Jueces
+      </button>
+      <button class="tablink" id="Fiscal">
+        Fiscal
+      </button>
+      <button class="tablink" id="Detectives">
+        Detectives
+      </button>
+      <button class="tablink" id="ComandanteOSubcomandante">
+        Comandante o Subcomandante
+      </button>
+      <button class="tablink" id="CaseMaster">
+        Case Master
+      </button>
+      <button class="tablink" id="AbogadoDefensor">
+        Abogado Defensor
+      </button>
+    </div>
+    <div class="tabcontent">
+      <div id="datos_primarios" class="datos_primarios">
+        <div id="datos_primarios_nombre" class="dato_primario1">
+          <div class="textoIndicador">
+            <h>Nombre</h>
+          </div>
+            <select class="selectorNombre">
+              <option selected></option>
+              <option>Alejandro Orozco</option>
+              <option>Benjamin</option>
+              <option>Carlos</option>
+              <option>Dario</option>
+              <option>Eduardo</option>
+            </select>
+        </div>
+        <div id="datos_primarios_curso" class="dato_primario2">
+          <div class="textoIndicador">
+            <h>Curso</h>
+          </div>
+          <select class="selectorCurso">
+            <option selected></option>
+            <option>6a</option>
+            <option>6b</option>
+            <option>7a</option>
+            <option>7b</option>
+            <option>8a</option>
+            <option>8b</option>
+          </select>
+          </div>
+        <div id="datos_primarios_edad" class="dato_primario3">
+          <div class="textoIndicador">
+            <h>Edad</h>
+          </div>
+          <input type="number" class="inputEdad" min="5" max="19">
+        </div>
+        <div id="datos_primarios_casa" class="dato_primario4">
+           <div class="textoIndicador">
+             <h>Casa</h>
+          </div>
+          <select class="selectorCasa">
+            <option selected></option>
+            <option>Politeia</option>
+            <option>Filia</option>
+            <option>Eudikia</option>
+          </select>
+        </div>
+        <div id="datos_primarios_telefono" class="dato_primario5">
+          <div class="textoIndicador">
+            <h>Teléfono</h>
+          </div>
+          <input type="tel" class="inputTelefono">
+        </div>
+        <div id="datos_primarios_email" class="dato_primario6">
+          <div class="textoIndicador">
+            <h>e-mail</h>
+          </div>
+          <input type="email" class="inputEmail">
+        </div>
+      </div>
+      <div id="datos_cargos" class="datos_cargos">
+        <div id="dato_cargo_1" class="dato_cargo_1">
+          <h class="texto_dato_cargo">Cargo 1</h>
+          <select id="selector_dato_cargo_1" class="selector_dato_cargo"> 
+            <option id="prensa_cargo_1">Prensa</option>
+            <option id="policia_interna_cargo_1">Policía Interna</option>
+            <option id="logistica_cargo_1">Logística</option>
+            <option id="l_m_f_cargo_1">Laboratorio Medicina Forense</option>
+            <option id="l_c_f_cargo_1">Laboratorio Cómputo Forense</option>
+            <option id="l_ca_f_cargo_1">Laboratorio Cálculo Forense</option>
+            <option id="jueces_cargo_1">Jueces</option>
+            <option id="fiscal_cargo_1">Fiscal</option>
+            <option id="detect_cargo_1">Detectives</option>
+            <option id="cos_cargo_1">Comandante o Subcomandante</option>
+            <option id="ca_cargo_1">Case Master</option>
+            <option id="ad_cargo_1">Abogado Defensor</option>
+          </select>         </div>
+        <div id="dato_cargo_2" class="dato_cargo_2">
+           <h class="texto_dato_cargo">Cargo 2</h>
+
+          <select id="selector_dato_cargo_2" class="selector_dato_cargo"> 
+            <option id="prensa_cargo_2">Prensa</option>
+            <option id="policia_interna_cargo_2">Policía Interna</option>
+            <option id="logistica_cargo_2">Logística</option>
+            <option id="l_m_f_cargo_2">Laboratorio Medicina Forense</option>
+            <option id="l_c_f_cargo_2">Laboratorio Cómputo Forense</option>
+            <option id="l_ca_f_cargo_2">Laboratorio Cálculo Forense</option>
+            <option id="jueces_cargo_2">Jueces</option>
+            <option id="fiscal_cargo_2">Fiscal</option>
+            <option id="detect_cargo_2">Detectives</option>
+            <option id="cos_cargo_2">Comandante o Subcomandante</option>
+            <option id="ca_cargo_2">Case Master</option>
+            <option id="ad_cargo_2">Abogado Defensor</option>
+          </select>         </div> 
+        <div id="dato_cargo_3" class="dato_cargo_3">
+           <h class="texto_dato_cargo">Cargo 3</h>
+
+           <select id="selector_dato_cargo_3" class="selector_dato_cargo"> 
+            <option id="prensa_cargo_3">Prensa</option>
+            <option id="policia_interna_cargo_3">Policía Interna</option>
+            <option id="logistica_cargo_3">Logística</option>
+            <option id="l_m_f_cargo_3">Laboratorio Medicina Forense</option>
+            <option id="l_c_f_cargo_3">Laboratorio Cómputo Forense</option>
+            <option id="l_ca_f_cargo_3">Laboratorio Cálculo Forense</option>
+            <option id="jueces_cargo_3">Jueces</option>
+            <option id="fiscal_cargo_3">Fiscal</option>
+            <option id="detect_cargo_3">Detectives</option>
+            <option id="cos_cargo_3">Comandante o Subcomandante</option>
+            <option id="ca_cargo_3">Case Master</option>
+            <option id="ad_cargo_3">Abogado Defensor</option>
+          </select>         </div> 
+      </div>
+      <div id="datos_secundarios_prensa" class="datos_secundarios">
+        <div id="datos_secundarios_prensa_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_prensa_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_prensa_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+              ¿Qué experiencia tiene en medios?
+            </p>
+          </div>
+          <textarea id="dato_secundario_prensa_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_prensa_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+              Describa sus habilidades de redacción
+            </p>
+          </div>
+          <textarea id="dato_secundario_prensa_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_prensa_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+              Describa sus habilidades creativas
+            </p>
+          </div>
+          <textarea id="dato_secundario_prensa_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_prensa_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+              ¿Tiene habilidades en producción multimedia (videos o fotos)?
+            </p>
+          </div>
+          <textarea id="dato_secundario_prensa_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_prensa_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            ¿Qué progrmas de edición, diseño o diagrmación sabe manejar?
+          </div>
+          <textarea id="dato_secundario_prensa_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_prensa_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Cuál es su principal debilidad?
+          </div>
+          <textarea id="dato_secundario_prensa_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_prensa_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Qué quiere estudiar?
+          </div>
+          <textarea id="dato_secundario_prensa_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_policia_interna" class="datos_secundarios">
+        <div id="datos_secundarios_policia_interna_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_policia_interna_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_policia_interna_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+              ¿Ha tenido roles en que tenga que vigilar lo que hacen los demás? descríbalos
+            </p>
+          </div>
+          <textarea id="dato_secundario_policia_interna_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_policia_interna_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+              ¿En los trabajos en grupo qué rol ocupa generalmente?
+            </p>
+          </div>
+          <textarea id="dato_secundario_policia_interna_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_policia_interna_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+              ¿Cómo se asegura que los demás hagan su trabajo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_policia_interna_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_policia_interna_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+              ¿Se considera capaz de confrontar a alguien que no está haciendo su trabajo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_policia_interna_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_policia_interna_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            ¿Es usted una persona impulsiva o reflexiva? ejemplifique su respuesta
+          </div>
+          <textarea id="dato_secundario_policia_interna_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_policia_interna_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Es una persona que se fija en los detalles?
+          </div>
+          <textarea id="dato_secundario_policia_interna_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_policia_interna_8" class="dato_secundario_8">
+          <div class="textoPregunta" style="font-size:1vw;">
+            ¿Con cuál de las siguientes afirmaciones está más de acuerdo? explique su respuesta: 1 La policía debe imponer siempre su autoridad, 2 La policía debe mediar siempre para que todos tengan lo que les corresponda, 3 La policía tiene que preguntar antes de actuar
+          </div>
+          <textarea id="dato_secundario_policia_interna_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_logistica" class="datos_secundarios">
+        <div id="datos_secundarios_logistica_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_logistica_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_logistica_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+              ¿Ha tenido roles en logística?
+            </p>
+          </div>
+          <textarea id="dato_secundario_logistica_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_logistica_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué le gustaría hacer parte del equipo de logística?
+            </p>
+          </div>
+          <textarea id="dato_secundario_logistica_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_logistica_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+              ¿Se considera eficiente?
+            </p>
+          </div>
+          <textarea id="dato_secundario_logistica_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_logistica_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+              ¿Se considera proactivo? De un ejemplo
+            </p>
+          </div>
+          <textarea id="dato_secundario_logistica_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_logistica_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            ¿Ha tenido que obedecer a otro estudiante?
+          </div>
+          <textarea id="dato_secundario_logistica_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_logistica_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Cuál es su principal debilidad?
+          </div>
+          <textarea id="dato_secundario_logistica_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_logistica_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Cuál es su principal fortaleza?
+          </div>
+          <textarea id="dato_secundario_logistica_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_l_m_f" class="datos_secundarios">
+        <div id="datos_secundarios_l_m_f_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_m_f_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_m_f_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+              ¿Qué habilidades tiene en ciencias, biología o química?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_m_f_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_m_f_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+              ¿Tiene interés por la medicina, la genética, la química o la biología?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_m_f_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_m_f_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+              ¿Le gusta realizar experimentos, mediciones y pruebas?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_m_f_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_m_f_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+              Describa sus resultados y proceso de aprendizaje en química
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_m_f_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_m_f_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            Describa sus resultados y proceso de aprendizaje en biología
+          </div>
+          <textarea id="dato_secundario_l_m_f_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_m_f_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            Describa sus resultados y proceso de aprendizaje en física
+          </div>
+          <textarea id="dato_secundario_l_m_f_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_m_f_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Qué quiere estudiar?
+          </div>
+          <textarea id="dato_secundario_l_m_f_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_l_c_f" class="datos_secundarios">
+        <div id="datos_secundarios_l_c_f_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_c_f_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_c_f_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+              ¿Qué habilidades informáticas tiene?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_c_f_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_c_f_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+              ¿Qué programas de computador sabe manejar?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_c_f_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_c_f_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+              ¿Tiene buenas habilidades para navegar en redes sociales? ¿Por qué?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_c_f_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_c_f_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+              ¿Tiene experiencia manejando información audiovisual?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_c_f_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_c_f_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            Describa sus resultados y proceso de aprendizaje en el área de tecnología
+          </div>
+          <textarea id="dato_secundario_l_c_f_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_c_f_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            Describa sus resultados y proceso de aprendizaje en el área de matemáticas
+          </div>
+          <textarea id="dato_secundario_l_c_f_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_c_f_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Qué quiere estudiar?
+          </div>
+          <textarea id="dato_secundario_l_c_f_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_l_ca_f" class="datos_secundarios">
+        <div id="datos_secundarios_l_ca_f_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_ca_f_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_ca_f_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+              ¿Se considera bueno para analizar datos?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_ca_f_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_ca_f_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+              ¿Tiene interés por las matemáticas, la física o la geometría?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_ca_f_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_ca_f_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+              ¿Ha participado en actividades extracurriculares de matemáticas o física?
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_ca_f_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_ca_f_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+              Describa sus resultados y proceso de aprendizaje en matemática y geometría
+            </p>
+          </div>
+          <textarea id="dato_secundario_l_ca_f_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_ca_f_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            Describa sus resultados y proceso de aprendizaje en física (solo bachillerato alto)
+          </div>
+          <textarea id="dato_secundario_l_ca_f_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_ca_f_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Se considera capaz de abordar problemas matemáticos de todo lo que ha visto en el colegio?
+          </div>
+          <textarea id="dato_secundario_l_ca_f_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_l_ca_f_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Qué quiere estudiar?
+          </div>
+          <textarea id="dato_secundario_l_ca_f_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_jueces" class="datos_secundarios">
+        <div id="datos_secundarios_jueces_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_jueces_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_jueces_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+            ¿Le interesa el derecho?
+            </p>
+          </div>
+          <textarea id="dato_secundario_jueces_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_jueces_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+          ¿Cómo puede establecer si los argumentos de las partes enfrentadas son correctos?
+            </p>
+          </div>
+          <textarea id="dato_secundario_jueces_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_jueces_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+              ¿Cómo puede establecer si los argumentos de las partes enfrentadas son correctos?
+            </p>
+          </div>
+          <textarea id="dato_secundario_jueces_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_jueces_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+            ¿Ha tenido roles como evaluador?
+            </p>
+          </div>
+          <textarea id="dato_secundario_jueces_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_jueces_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            ¿Cuál es su principal fortaleza?
+          </div>
+          <textarea id="dato_secundario_jueces_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_jueces_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Cuál es su principal fortaleza?
+          </div>
+          <textarea id="dato_secundario_jueces_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_jueces_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Qué quiere estudiar?
+          </div>
+          <textarea id="dato_secundario_jueces_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_fiscal" class="datos_secundarios">
+        <div id="datos_secundarios_fiscal_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_fiscal_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_fiscal_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+            ¿Le interesa el derecho?
+            </p>
+          </div>
+          <textarea id="dato_secundario_fiscal_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_fiscal_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+            Describa sus habilidades argumentativas
+            </p>
+          </div>
+          <textarea id="dato_secundario_fiscal_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_fiscal_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+            Describa sus habilidades orales
+            </p>
+          </div>
+          <textarea id="dato_secundario_fiscal_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_fiscal_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+            ¿Qué experiencia tiene en debates y en argumentación?
+            </p>
+          </div>
+          <textarea id="dato_secundario_fiscal_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_fiscal_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            Describas sus habilidades de imporvización
+          </div>
+          <textarea id="dato_secundario_fiscal_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_fiscal_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Prefiere trabajar solo o en grupo?
+          </div>
+          <textarea id="dato_secundario_fiscal_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_fiscal_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Qué quiere estudiar?
+          </div>
+          <textarea id="dato_secundario_fiscal_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_detect" class="datos_secundarios">
+        <div id="datos_secundarios_detect_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_detect_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_detect_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+            ¿Cuáles son sus series favoritas?
+            </p>
+          </div>
+          <textarea id="dato_secundario_detect_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_detect_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+            ¿Ha participado en juegos que impliquen investigaciones?
+            </p>
+          </div>
+          <textarea id="dato_secundario_detect_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_detect_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+            ¿Se considera perspicaz? ¿por qué?
+            </p>
+          </div>
+          <textarea id="dato_secundario_detect_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_detect_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+              ¿Qué habilidades tiene de análisis?
+            </p>
+          </div>
+          <textarea id="dato_secundario_detect_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_detect_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            ¿Cuál es su principal fortaleza?
+          </div>
+          <textarea id="dato_secundario_detect_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_detect_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Cuál es su principal debilidad?
+          </div>
+          <textarea id="dato_secundario_detect_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_detect_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Qué quiere estudiar?
+          </div>
+          <textarea id="dato_secundario_detect_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_cos" class="datos_secundarios">
+        <div id="datos_secundarios_cos_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_cos_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_cos_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+            ¿Qué roles directivos o de coordinación ha tenido?
+            </p>
+          </div>
+          <textarea id="dato_secundario_cos_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_cos_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+            ¿Cuál es su experiencia trabajando con niños de Escuela Media?
+            </p>
+          </div>
+          <textarea id="dato_secundario_cos_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_cos_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+          ¿En qué actividades de su vida ha tenido que tomar decisiones y coordinar personas?
+            </p>
+          </div>
+          <textarea id="dato_secundario_cos_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_cos_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+              ¿Qué le permite concluir que tiene habilidades de toma de decisiones?
+            </p>
+          </div>
+          <textarea id="dato_secundario_cos_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_cos_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            ¿Qué características de liderazgo tiene? ejemplifique su respuesta.
+          </div>
+          <textarea id="dato_secundario_cos_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_cos_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Cuál es su principal debilidad para este cargo?
+          </div>
+          <textarea id="dato_secundario_cos_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_cos_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Qué roles asume usted en los trabajos en grupo?
+          </div>
+          <textarea id="dato_secundario_cos_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_ca" class="datos_secundarios">
+        <div id="datos_secundarios_ca_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_ca_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ca_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+            ¿Qué experiencia tiene con juegos de rol?
+            </p>
+          </div>
+          <textarea id="dato_secundario_ca_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ca_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+            ¿Qué juegos de video y qué juegos de mesa son los que más le gustan? ¿Por qué?
+            </p>
+          </div>
+          <textarea id="dato_secundario_ca_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ca_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+            ¿Ha tenido que trabajar bajo presión en algún rol desempeñado? ¿Cuál? ¿Cómo fue su desempeño?
+            </p>
+          </div>
+          <textarea id="dato_secundario_ca_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ca_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>
+            Para usted, ¿qué significa que las decisiones se tomen en los momentos adecuados?
+            </p>
+          </div>
+          <textarea id="dato_secundario_ca_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ca_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            ¿Consulta sus decisiones con alguien más o las toma solo?
+          </div>
+          <textarea id="dato_secundario_ca_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ca_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Cuál es su principal debilidad para este cargo?
+          </div>
+          <textarea id="dato_secundario_ca_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ca_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Que quiere estudiar?
+          </div>
+          <textarea id="dato_secundario_ca_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <div id="datos_secundarios_ad" class="datos_secundarios">
+        <div id="datos_secundarios_ad_1" class="dato_secundario_1">
+          <div class="textoPregunta">
+            <p>
+              ¿Por qué cree que es idóneo(a) para este cargo?
+            </p>
+          </div>
+          <textarea id="dato_secundario_ad_1" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ad_2" class="dato_secundario_2">
+          <div class="textoPregunta">
+            <p>
+            ¿Tiene interés por el derecho?
+            </p>
+          </div>
+          <textarea id="dato_secundario_ad_2" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ad_3" class="dato_secundario_3">
+          <div class="textoPregunta">
+            <p>
+            Describa sus habilidades argumentativas
+            </p>
+          </div>
+          <textarea id="dato_secundario_ad_3" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ad_4" class="dato_secundario_4">
+          <div class="textoPregunta">
+            <p>
+            Describa sus habilidades orales
+            </p>
+          </div>
+          <textarea id="dato_secundario_ad_4" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ad_5" class="dato_secundario_5">
+          <div class="textoPregunta">
+            <p>¿Qué experiencia tiene en debates y argumentación?
+            </p>
+          </div>
+          <textarea id="dato_secundario_ad_5" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ad_6" class="dato_secundario_6">
+          <div class="textoPregunta">
+            Describa sus habilidades de improvisación
+          </div>
+          <textarea id="dato_secundario_ad_6" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ad_7" class="dato_secundario_7">
+          <div class="textoPregunta">
+            ¿Prefiere trabajar en grupo o solo?
+          </div>
+          <textarea id="dato_secundario_ad_7" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+        <div id="datos_secundarios_ad_8" class="dato_secundario_8">
+          <div class="textoPregunta">
+            ¿Que quiere estudiar?
+          </div>
+          <textarea id="dato_secundario_ad_8" class="respuestaPregunta" maxlength="200"></textarea>
+        </div>
+      </div>
+      <button id="boton_registro" class="botonRegistro">Registrar</button>
+    </div>
+  </body>
+</html>
